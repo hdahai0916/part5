@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
-public class task {
+public class q1 {
     public static void main(String[] args) throws Exception {
         File fin=new File("./part5/task1/image/Java09-1.jpg");
         byte[] bytes=new byte[(int)fin.length()];
