@@ -10,5 +10,5 @@
 
 一开始没有写`connection.setDoOutput(true);`后面这行代码就出问题了，`OutputStream os =connection.getOutputStream();`，因为默认情况下，`HttpURLConnection` 默认 `doOutput = false`，表明只是读数据，不往请求体写东西。
 
-写`QueryRequest`和`QueryResponse`这两个类的时候，因为我是直接在构造的时候给对象赋值，代码里没有再给对象赋值，就没有写setter函数，导致fastjson反序列化的时候出问题了，为了排查错误，在服务器端让程序打印出收到的请求体，发现请求没有问题，不知道问题出在哪，最后问了ai才知道是反序列化的问题。
+写`QueryRequest`和`QueryResponse`这两个类的时候，因为我是直接在构造的时候给对象赋值，代码里没有再给对象赋值，就没有写setter函数，导致fastjson反序列化的时候出问题了，为了排查错误，在服务器端让程序打印出收到的请求体，发现请求没有问题，不知道问题出在哪，最后问了ai才知道是fastjson反序列化的时候需要调用类的setter函数。
 
